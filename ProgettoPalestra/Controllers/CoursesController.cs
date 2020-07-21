@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using ProgettoPalestra.Models.Services.Application;
+using ProgettoPalestra.Models.ViewModels;
 
 namespace ProgettoPalestra.Controllers
 {
@@ -10,11 +12,15 @@ namespace ProgettoPalestra.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            CourseService courseService = new CourseService();
+            List<CourseViewModel> courses = courseService.GetCourses();
+            return View(courses);
         }
-        public IActionResult Detail()
+        public IActionResult Detail(int id)
         {
-            return View();
+            CourseService courseService = new CourseService();
+            CourseDetailViewModel viewModel = courseService.GetCourse(id);
+            return View(viewModel);
         }
     }
 }
