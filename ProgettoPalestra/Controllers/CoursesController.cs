@@ -12,6 +12,7 @@ namespace ProgettoPalestra.Controllers
     {
         public IActionResult Index()
         {
+            ViewData["Title"] = "Catalogo dei corsi";
             CourseService courseService = new CourseService();
             List<CourseViewModel> courses = courseService.GetCourses();
             return View(courses);
@@ -20,6 +21,7 @@ namespace ProgettoPalestra.Controllers
         {
             CourseService courseService = new CourseService();
             CourseDetailViewModel viewModel = courseService.GetCourse(id);
+            ViewData["Title"] = viewModel.Title;
             return View(viewModel);
         }
     }
