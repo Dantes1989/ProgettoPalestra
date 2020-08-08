@@ -8,7 +8,7 @@ using ProgettoPalestra.Models.ViewModels;
 
 namespace ProgettoPalestra.Models.Services.Application
 {
-    public class CourseService
+    public class CourseService : ICourseService
     {
         public List<CourseViewModel> GetCourses()
         {
