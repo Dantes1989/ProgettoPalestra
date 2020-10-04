@@ -8,7 +8,7 @@ namespace ProgettoPalestra.Models.Services.Application
 {
     public interface ICourseService
     {
-        List<CourseViewModel> GetCourses();
-        CourseDetailViewModel GetCourse(int Id);
+       Task <List<CourseViewModel>> GetCourses();
+        Task<CourseDetailViewModel> GetCourse(int Id);
     }
 }

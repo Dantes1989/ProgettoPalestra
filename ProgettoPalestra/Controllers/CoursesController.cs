@@ -16,15 +16,15 @@ namespace ProgettoPalestra.Controllers
         {
             this.courseService = courseService;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
             ViewData["Title"] = "Catalogo dei corsi";
-            List<CourseViewModel> courses = courseService.GetCourses();
+            List<CourseViewModel> courses = await courseService.GetCourses();
             return View(courses);
         }
-        public IActionResult Detail(int id)
+        public async Task<IActionResult> Detail(int id)
         {
-            CourseDetailViewModel viewModel = courseService.GetCourse(id);
+            CourseDetailViewModel viewModel = await courseService.GetCourse(id);
             ViewData["Title"] = viewModel.Title;
             return View(viewModel);
         }
